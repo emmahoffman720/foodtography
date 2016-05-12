@@ -16,11 +16,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "should successfully show the new form" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user      
 
       get :new
@@ -35,11 +31,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "should successfully create a new post in database" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       post :create, post: {message: 'First Recipe', recipe: 'Bread, peanut butter, jelly'}
@@ -52,11 +44,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "should successfully deal with validation errors" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       post :create, post: {message: ''}
