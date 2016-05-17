@@ -2,7 +2,9 @@ Foodtography::Application.routes.draw do
 
   devise_for :users
   root "posts#index"
-  resources :posts
+  resources :posts do
+    resources :comments, only: :create
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
