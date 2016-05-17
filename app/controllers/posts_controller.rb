@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
 
   def index
+    @posts = Post.all
   end
 
   def create
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
-    
+
     return render_not_found(:forbidden) if @post.user != current_user
   end
 
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message, :recipe)
+    params.require(:post).permit( :message, :recipe, :picture)
   end
 
   def render_not_found(status=:not_found)
