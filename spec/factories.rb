@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :related_recipe do
+    
+  end
   factory :comment do
     
   end

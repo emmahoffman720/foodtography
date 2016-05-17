@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
+  
   describe "posts#destroy" do
     it "shouldn't let users who didn't create the post destroy it" do
       p = FactoryGirl.create(:post)
