@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :variation, class: 'Variations' do
+    
+  end
   factory :comment do
     
   end

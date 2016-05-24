@@ -4,6 +4,7 @@ Foodtography::Application.routes.draw do
   root "posts#index"
   resources :posts do
     resources :comments, only: :create
+    resources :variations, only: :create
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
