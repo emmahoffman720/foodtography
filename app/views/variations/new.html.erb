@@ -1,0 +1,12 @@
+<h1>NEW POST</h1>
+
+<%= simple_form_for @post do |f| %>
+
+  <%= f.input :title %>
+  <%= f.input :picture %>
+  <%= f.input :description %>
+  <%= f.input :recipe %>
+
+
+  <%= f.submit "Post" %>
+<% end %>

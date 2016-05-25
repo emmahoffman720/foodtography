@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe VariationsController, type: :controller do
+describe "variations#new action" do
+    it "should require users to be logged in" do
+      get :new
+      expect(response).to redirect_to new_user_session_path
+    end
+
+    it "should successfully show the new form" do
+      user = FactoryGirl.create(:user)
+      sign_in user      
+
+      get :new
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "variations#create action" do
     it "should allow users to create variations on posts" do
       p = FactoryGirl.create(:post)

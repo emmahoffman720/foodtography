@@ -7,6 +7,10 @@ class VariationsController < ApplicationController
     @post.variations.create(variation_params.merge(user: current_user))
     redirect_to root_path
   end
+
+  def new
+    @post = Post.new
+  end
   
   private
 
